@@ -36,8 +36,12 @@ public function modifier_categorie(){
 
 }
 
-public function supprimer_categorie(){
+public function supprimer_categorie($id){
 
+    $categorie=Categorie::find($id);
+    $categorie->delete();
+
+    return redirect()->back();
 }
 
 }

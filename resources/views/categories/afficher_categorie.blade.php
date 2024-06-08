@@ -21,6 +21,12 @@
       <th scope="row">{{$categorie->id}}</th>
       <td>{{$categorie->libelle}}</td>
       <td>{{$categorie->description}}</td>
+      <td>
+        <a href="">Modifier</a>
+      </td>
+      <td>
+        <a href="supprimer/{{ $categorie->id}}">Supprimer</a>
+      </td>
       </tr>
     @endforeach
   </tbody>

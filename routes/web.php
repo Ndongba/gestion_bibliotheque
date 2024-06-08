@@ -21,5 +21,6 @@ Route::get('afficher',[LivreController::class,'afficher_livre']);
 Route::get('ajouter_categorie',[CategorieController::class,'ajouter_categorie']);
 Route::post('traitement_categorie',[CategorieController::class,'traitement_categorie']);
 Route::get('afficher_categorie',[CategorieController::class,'afficher_categorie']);
+Route::get('supprimer/{id}',[CategorieController::class,'supprimer_categorie']);
 
 

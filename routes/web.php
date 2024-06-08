@@ -9,8 +9,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Gestion Livres
+
 Route::get('ajouter',[LivreController::class,'ajouter_livre']);
 Route::post('traitement_livre',[LivreController::class,'traitement_livre']);
 Route::get('afficher',[LivreController::class,'afficher_livre']);
-Route::get('categorie',[CategorieController::class,'ajouter_categorie']);
-Route::get('rayon',[RayonController::class,'ajouter_rayon']);
+
+
+//Gestion Catégories
+
+Route::get('ajouter_categorie',[CategorieController::class,'ajouter_categorie']);
+Route::post('traitement_categorie',[CategorieController::class,'traitement_categorie']);
+Route::get('afficher_categorie',[CategorieController::class,'afficher_categorie']);
+
+

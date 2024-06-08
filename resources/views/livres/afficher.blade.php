@@ -29,12 +29,6 @@
       <td>{{$livre->auteur}}</td>
       <td>{{$livre->isbn}}</td>
       <td>{{$livre->editeur}}</td>
-      <td>
-
-      </td>
-      <td>
-        
-      </td>
     </tr>
     @endforeach
   </tbody>

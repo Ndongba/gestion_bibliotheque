@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('libelle');
             $table->string('partie');
+            $table->string('status');
             $table->timestamps();
         });
     }

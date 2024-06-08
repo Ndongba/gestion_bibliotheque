@@ -2,24 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
 {
-    public function ajouter_livre(){
-        return view('rayon');
+    public function ajouter_categorie(){
+        return view('categories.ajouter_categorie');
+    }
+    
+    public function traitement_categorie(Request $request){
+    
+        $request->validate([
+            'libelle' => 'required',
+            'description'=> 'required',
+    
+        ]);
+        
+        Categorie::create($request->all());
+    
+        return redirect('ajouter_categorie');
     }
 
-public function afficher_livre(){
+public function afficher_categorie(){
+    $categories=Categorie::all();
+
+    return view('categories.afficher_categorie',compact('categories'));
 
 }
 
 
-public function modifier_livre(){
+public function modifier_categorie(){
 
 }
 
-public function supprimer_livre(){
+public function supprimer_categorie(){
 
 }
+
 }

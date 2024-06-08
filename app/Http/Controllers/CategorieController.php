@@ -32,8 +32,22 @@ public function afficher_categorie(){
 }
 
 
-public function modifier_categorie(){
+public function modifier_categorie($id){
+    $categorie=Categorie::find($id);
+    return view('categories.modifier_categorie',compact('categorie'));
 
+}
+
+public function sauve_modification(Request $request, $id){
+
+    $request->validate([
+        'libelle'=>'required',
+        'description'=>'required',
+    ]);
+
+    $categorie=Categorie::find($id);
+    $categorie->update($request->all());
+    return redirect('categories.afficher_categorie');
 }
 
 public function supprimer_categorie($id){

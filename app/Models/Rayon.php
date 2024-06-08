@@ -10,6 +10,11 @@ class Rayon extends Model
 {
     use HasFactory; 
 
+    protected $fillable=[
+        'libelle',
+        'partie',
+    ];
+
     // Permet de recuperer le rayon du livre
     public function livre():HasMany
     {

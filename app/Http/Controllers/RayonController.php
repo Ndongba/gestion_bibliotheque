@@ -27,5 +27,27 @@ class RayonController extends Controller
         return view('rayons.afficher_rayon',compact('rayons'));
     }
 
-    
+         public function supprimer_rayon($id){
+        $rayon=Rayon::find($id);
+        $rayon->delete();
+       return redirect()->back();
+     }
+
+
+    public function modifier_rayon($id){
+        $rayon=Rayon::find($id);
+        return view();
+    }
+
+    public function sauve_rayon(Request $request, $id){
+
+        $request->validate([
+            'libelle'=>'required',
+            'partie'=>'required',
+        ]);
+
+        $rayon=Rayon::find($id);
+        $rayon->update($request->all());
+        return redirect('afficher_rayon');
+    }
 }

@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\CategorieController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\RayonController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Authentification;
+use App\Http\Controllers\CategorieController;
+use GuzzleHttp\Middleware;
+use Illuminate\Auth\Middleware\Authenticate;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,9 +31,19 @@ Route::post('modifier/{id}',[CategorieController::class,'sauve_modification']);
 
 // Gestion Rayons
 
-Route::get('ajouter_rayon',[RayonController::class,'ajouter_rayon']); 
-Route::POST('traitement_rayon',[RayonController::class,'traitement_rayon']); 
-Route::get('afficher_rayon',[RayonController::class,'afficher_rayon']); 
-Route::get('supprimer_rayon/{id]',[RayonController::class,'supprimer_rayon']); 
-Route::get('modifier_rayon/{id}',[CategorieController::class,'modifier_categorie']);
-Route::post('modifier_rayon/{id}',[CategorieController::class,'sauve_modification']);
+Route::get('ajouter_rayon',[RayonController::class,'ajouter_rayon'])->name('ajouter_rayon'); 
+Route::POST('traitement_rayon',[RayonController::class,'traitement_rayon'])->name('traitement_rayon'); 
+Route::get('afficher_rayon',[RayonController::class,'afficher_rayon'])->name('afficher_rayon'); 
+Route::get('supprimer_rayon/{id]',[RayonController::class,'supprimer_rayon'])->name('supprimer_rayon'); 
+Route::get('modifier/{id}',[RayonController::class,'modifier_rayon'])->name('modifier_rayon');
+Route::post('modifier/{id}',[RayonController::class,'sauve_rayon'])->name('sauve_rayon');
+
+
+
+//Authentification
+
+Route::get('login',[Authentification::class,'login'])->name('login');
+Route::post('authentification',[Authentification::class,'authentification'])->name('authentification');
+Route::post('logout',[Authentification::class,'logout'])->name('logout');
+Route::get('register',[Authentification::class,'creer'])->name('register');
+Route::post('register',[Authentification::class,'enregistrer'])->name('register');

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Livre;
-use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class LivreController extends Controller

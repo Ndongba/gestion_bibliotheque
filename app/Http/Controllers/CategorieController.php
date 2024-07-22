@@ -38,16 +38,14 @@ public function modifier_categorie($id){
 
 }
 
-public function sauve_modification(Request $request, $id){
+public function sauve_modification(Request $request) {
+    $categorie=Categorie::find($request->id);
+    $categorie->libelle = $request->libelle;
+    $categorie->description = $request->description;
 
-    $request->validate([
-        'libelle'=>'required',
-        'description'=>'required',
-    ]);
-
-    $categorie=Categorie::find($id);
-    $categorie->update($request->all());
-    return redirect('categories.afficher_categorie');
+    
+    $categorie->update();
+    return redirect('afficher_categorie');
 }
 
 public function supprimer_categorie($id){

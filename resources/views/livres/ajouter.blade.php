@@ -21,6 +21,26 @@
   <input type="text" class="form-control" id="titre" name="titre" required>
 </div>
 <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Image</label>
+  <input type="text" class="form-control" id="image" name="url_image" required>
+</div>
+<div class="mb-3">
+  <label for="categorie_id" class="form-label">Categorie</label>
+ <select name="categorie_id">
+  @foreach($categories as $categorie)
+  <option value="{{ $categorie->id}}">{{ $categorie->libelle}}</option>
+  @endforeach
+  </select>
+</div>
+<div class="mb-3">
+  <label for="rayon_id" class="form-label">Rayon</label>
+  <select name="rayon_id">
+  @foreach($rayons as $rayon)
+  <option value="{{ $rayon->id}}">{{ $rayon->libelle}}</option>
+  @endforeach
+  </select>
+</div>
+<div class="mb-3">
   <label for="exampleFormControlTextarea1" class="form-label">Date de publication</label>
   <input type="date" name="date_de_publication" required>
 </div>

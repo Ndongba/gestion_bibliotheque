@@ -21,3 +21,6 @@ class Categorie extends Model
         return $this->hasMany(Livre::class);
     }
 }
+
+
+

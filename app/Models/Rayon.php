@@ -13,6 +13,7 @@ class Rayon extends Model
     protected $fillable=[
         'libelle',
         'partie',
+        'status',
     ];
 
     // Permet de recuperer le rayon du livre

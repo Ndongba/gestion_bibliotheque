@@ -16,6 +16,7 @@ class RayonController extends Controller
         $request->validate([
             'libelle'=>'required',
             'partie'=>'required',
+            'status' => 'required'
         ]);
 
         Rayon::create($request->all());
@@ -27,26 +28,26 @@ class RayonController extends Controller
         return view('rayons.afficher_rayon',compact('rayons'));
     }
 
-         public function supprimer_rayon($id){
-        $rayon=Rayon::find($id);
+        public function supprimer_rayon($id) {
+        $rayon=Rayon::findorfail($id);
         $rayon->delete();
-       return redirect()->back();
+       
+        return redirect()->back();
      }
 
 
     public function modifier_rayon($id){
         $rayon=Rayon::find($id);
-        return view();
+        return view('rayons.modifier_rayon', compact('rayon'));
     }
 
-    public function sauve_rayon(Request $request, $id){
+    public function sauve_rayon(Request $request) {
+        $rayon= Rayon::findorfail($request->id);
+        $rayon->libelle = $request->libelle;
+        $rayon->partie = $request->partie;
+        $rayon->status = $request->status;
 
-        $request->validate([
-            'libelle'=>'required',
-            'partie'=>'required',
-        ]);
-
-        $rayon=Rayon::find($id);
+       
         $rayon->update($request->all());
         return redirect('afficher_rayon');
     }

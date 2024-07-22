@@ -12,6 +12,9 @@ class Livre extends Model
 
    protected $fillable=[
             'titre',
+            'url_image',
+            'categorie_id',
+            'rayon_id',
             'date_de_publication',
             'nombre_de_pages',
             'auteur' ,

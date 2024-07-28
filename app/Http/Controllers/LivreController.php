@@ -74,6 +74,7 @@ public function sauve_livre(Request $request,$id){
 
    
     $livre->update($request->all());
+    
 
     return view('livres.afficher');
 
@@ -88,6 +89,26 @@ public function sauve_livre(Request $request,$id){
     return redirect()->back();
 }
 
+
+
+public function rechercher(Request $request)
+{
+    $query = $request->input('query');
+
+    $livres = Livre::where('titre', 'LIKE', "%$query%")
+                    ->orWhere('auteur', 'LIKE', "%$query%")
+                    ->orWhereHas('categorie', function ($q) use ($query) {
+                        $q->where('libelle', 'LIKE', "%$query%");
+                    })
+                    ->orWhereHas('rayon', function ($q) use ($query) {
+                        $q->where('libelle', 'LIKE', "%$query%");
+                    })
+                    ->get();
+
+    return view('livres.rechercher', compact('livres'));
 }
+}
+
+
 
 

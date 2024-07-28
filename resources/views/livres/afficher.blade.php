@@ -9,6 +9,13 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="rechercher">
+    <form action="{{ url('rechercher') }}" method="GET" class="container">
+        <input type="text" name="query" placeholder="Rechercher des livres" id="search" >
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
+    </div>
+    
         <div class="album py-5 bg-light">
               <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

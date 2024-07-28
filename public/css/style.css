@@ -17,3 +17,15 @@
 
     gap: 20px;
 }
+
+.rechercher{
+    
+    width: 350px;
+    margin: 20px auto;
+}
+
+#search{
+    height: 38px;
+    border-color: black;
+    border-radius: 10px;
+}

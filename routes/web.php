@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LivreController;
@@ -52,3 +52,6 @@ Route::post('authentification',[Authentification::class,'authentification'])->na
 Route::post('logout',[Authentification::class,'logout'])->name('logout');
 Route::get('register',[Authentification::class,'creer'])->name('register');
 Route::post('register',[Authentification::class,'enregistrer'])->name('register');
+
+// Recherche
+Route::get('rechercher', [LivreController::class, 'rechercher']);

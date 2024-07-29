@@ -31,7 +31,7 @@
                                    
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group" id="bouton">
-                                        <a href="detail/{{ $livre->id }}">
+                                        <a href="livres/detail/{{ $livre->id }}">
                                             <button type="button" class="btn btn-sm btn-success">
                                                 Détail
                                             </button>

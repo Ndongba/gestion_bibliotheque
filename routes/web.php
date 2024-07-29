@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('ajouter',[LivreController::class,'ajouter_livre']);
 Route::post('traitement_livre',[LivreController::class,'traitement_livre']);
 Route::get('afficher',[LivreController::class,'afficher_livre']);
-Route::get('detail/{id}', [LivreController::class, 'detail_livre']);
+Route::get('livres/detail/{id}', [LivreController::class, 'detail_livre']);
 Route::get('livres/supprimer/{id}',[LivreController::class,'supprimer_livre']);
 Route::get('livres/modifier_livre/{id}',[LivreController::class,'modifier_livre']);
 Route::post('livres/sauve_livre/{id}',[LivreController::class,'sauve_livre']);

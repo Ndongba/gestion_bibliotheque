@@ -9,8 +9,9 @@
 </head>
 <body>
     <h1 id="h1">Detail du livre: {{ $livre->titre}}</h1>
+    <a href="{{ url('afficher')}}" class="btn btn-primary" id="acceuil">Acceuil</a>
     <div class="container">
-<div class="card mb-3" style="max-width: 1000px;" >
+<div class="card mb-3" style="max-width: 1000px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img src="{{ $livre->url_image}}" class="img-fluid rounded-start" alt="..." style="width :100%; height:0 auto">

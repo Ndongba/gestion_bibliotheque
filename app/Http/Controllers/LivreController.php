@@ -35,15 +35,15 @@ class LivreController extends Controller
 
 public function afficher_livre(){
     $livres= Livre::all();
-    $categorie=Categorie::all();
-    $rayon=Rayon::all();
+    $categories=Categorie::all();
+    $rayons=Rayon::all();
     
-    return view('livres.afficher',compact('livres','categorie','rayon'));
+    return view('livres.afficher',compact('livres','categories','rayons'));
 }
 
     public function detail_livre($id) {
 
-        $livre= Livre::find($id);
+        $livre= Livre::findorfail($id);
 
         return view('livres.detail', compact('livre'));
 
@@ -73,10 +73,10 @@ public function sauve_livre(Request $request,$id){
 
 
    
-    $livre->update($request->all());
+    $livre->update();
     
 
-    return view('livres.afficher');
+    return view('livres.detail', compact('livre'));
 
 }
 
